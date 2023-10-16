@@ -2,6 +2,11 @@
 
 ## Day-to-day stuff
 - [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)
+- [42_Exam](https://github.com/JCluzet/42_EXAM) that is now part of [GRADEME.FR](https://grademe.fr/) and can be run via:
+
+```
+bash -c "$(curl https://grademe.fr)"
+```
 
 ## Hacking Vim
 ### Set variables
