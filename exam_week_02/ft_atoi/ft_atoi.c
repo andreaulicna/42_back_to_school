@@ -6,7 +6,7 @@
 /*   By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 08:25:36 by aulicna           #+#    #+#             */
-/*   Updated: 2023/10/18 08:57:20 by aulicna          ###   ########.fr       */
+/*   Updated: 2023/10/18 09:51:54 by aulicna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,4 @@ int	ft_atoi(const char *str)
 	if (min)
 		res *= -1;
 	return (res);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d\n", ft_atoi("-42"));
-	return (0);
 }
