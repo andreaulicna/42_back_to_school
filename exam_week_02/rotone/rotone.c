@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   rotone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 07:49:32 by aulicna           #+#    #+#             */
-/*   Updated: 2023/10/18 08:22:27 by aulicna          ###   ########.fr       */
+/*   Created: 2023/10/18 08:12:15 by aulicna           #+#    #+#             */
+/*   Updated: 2023/10/18 08:22:09 by aulicna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int	ft_isalpha(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if ((65 <= c && c <= 90) || (97 <= c && c <= 122))
+		return (1);
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	char	*str;
+	int	i;
 
-	if (argc == 4 && ft_strlen(argv[2]) == 1 && ft_strlen(argv[3]) == 1)
+	if (argc == 2)
 	{
 		i = 0;
-		str = argv[1];
-		while (str[i])
+		while (argv[1][i])
 		{
-			if (str[i] == *argv[2])
-				write(1, argv[3], 1);
-			else
-				write(1, &str[i], 1);
+			if (ft_isalpha(argv[1][i]))
+			{
+				if (argv[1][i] == 'z' || argv[1][i] == 'Z')
+					argv[1][i] -= 25;
+				else
+					argv[1][i] += 1;
+			}
+			write(1, &argv[1][i], 1);
 			i++;
 		}
 	}
