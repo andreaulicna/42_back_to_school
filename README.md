@@ -9,9 +9,12 @@ bash -c "$(curl https://grademe.fr)"
 ```
 
 ## Hacking Vim
+
+### Replace all occurrence of a string
+```:%s/string1/string2/g```
 ### Set variables
 - Go to ```.vimrc``` in the ```home directory```
-- Create a new line for ```set [whatever it's that you want to do]```
+- Create a new line for ```set [whatever it's that you want to do, e.g. smartindent]```
 
 ## Hacking the terminal
 ### Create a new repo on Github
