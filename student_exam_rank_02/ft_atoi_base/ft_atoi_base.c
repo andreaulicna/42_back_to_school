@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 char	to_lowcase(char c)
 {
 	if ('A' <= c && c <= 'Z')
@@ -18,27 +17,31 @@ char	to_lowcase(char c)
 	return (c);
 }
 
+int	find_index(char c)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = "0123456789abcdef";
+	while (str[i])
+	{
+		if (str[i] == to_lowcase(c))
+			return (i);
+		i++;
+	}
+	return (-5);
+}
+
 int	ft_strlen(const char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (str[i] == '-')
 		i++;
-	return (i);
-}
-
-int	find_index(char *str, char c)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (i);
+	while (str[i] && find_index(str[i]) != -5)
 		i++;
-	}
 	return (i);
 }
 
@@ -74,25 +77,26 @@ int	ft_atoi_base(const char *str, int str_base)
 		str_len -= 1;
 	}
 	res = 0;
-	while (str[i + 1])
+	while (str[i + 1] && find_index(str[i + 1]) != -5)
 	{
-		res += find_index("0123456789abcdef", to_lowcase(str[i])) * ft_power(str_base, str_len);
+		res += find_index(to_lowcase(str[i])) * ft_power(str_base, str_len);
 		i++;
+		str_len--;
 	}
-	res += find_index("0123456789abcdef", to_lowcase(str[i]));
+	res += find_index(to_lowcase(str[i]));
 	if (min)
 		res *= -1;
 	return (res);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	printf("%d\n", ft_atoi_base("2a", 16));
-	printf("%d\n", ft_atoi_base("-2a", 16));
-	printf("%d\n", ft_atoi_base("2A", 16));
-	printf("%d\n", ft_atoi_base("-2A", 16));
-	return (0);
-}
-
+// int	main(void)
+// {
+// 	printf("%d\n", ft_atoi_base("2a", 16));
+// 	printf("%d\n", ft_atoi_base("-2a", 16));
+// 	printf("%d\n", ft_atoi_base("2A", 16));
+// 	printf("%d\n", ft_atoi_base("-2A", 16));
+// 	printf("%d\n", ft_atoi_base("-13268!", 10));
+// 	return (0);
+// }
