@@ -6,7 +6,7 @@
 /*   By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:44:19 by aulicna           #+#    #+#             */
-/*   Updated: 2023/10/20 17:47:08 by aulicna          ###   ########.fr       */
+/*   Updated: 2023/10/23 09:46:32 by aulicna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,20 @@ char	*ft_itoa(int nbr)
 	while (nbr != 0)
 	{
 		if (nbr > 0)
-			[len] = nbr % 10 + '0';
+			s[len] = nbr % 10 + '0';
 		else
-			[len] = (nbr % 10) * (-1) + '0';
-		n--;
-		r /= 10;
+			s[len] = (nbr % 10) * (-1) + '0';
+		len--;
+		nbr /= 10;
 	}
 	return (s);
 }
 
-//int main(void)
+//#include <stdio.h>
+//
+//int	main(void)
 //{
-//    printf("%s\n", ft_itoa(-4542));
-//    return (0);
+//	printf("%s\n", ft_itoa(-4542));
+//	return (0);
 //}
+//
